@@ -9,7 +9,7 @@ public class BST {
         }
 
     }
-    Node root;
+
 
     //insert function to insert value in tree
     public static Node insert(Node root, int val){
@@ -32,7 +32,7 @@ public class BST {
         return root;
     }
 
-    //inorder traversal
+    //inorder traversal = will return the values in ascending order
     public static void inOrder(Node root){
         if(root == null){
             return;
@@ -42,12 +42,30 @@ public class BST {
         inOrder(root.right);
     }
 
+    public static boolean search (Node root, int key){
+
+        if (root == null){
+            return false;
+
+        }
+
+        if(root.value>key){ //go into left subtree
+            return search(root.left,key);
+        } else if (root.value == key) {
+            return true;
+        }
+        else {
+            return search(root.right,key);
+        }
+    }
+
 
 
 
     public static void main(String[] args) {
 
         System.out.println("---Binary Search Tree---");
+
         int values[] = {56,30,70,22,40,60,95,11,3,16,65,63,67};
         Node root = null;
 
@@ -57,5 +75,12 @@ public class BST {
 
         inOrder(root);
         System.out.println();
+
+        if (search(root, 63)){
+            System.out.println("Item Found in the BST");
+        }
+        else {
+            System.out.println("Item Not Found in the BST");
+        }
     }
 }
