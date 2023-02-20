@@ -9,6 +9,7 @@ public class BST {
         }
 
     }
+    Node root;
 
     //insert function to insert value in tree
     public static Node insert(Node root, int val){
@@ -42,10 +43,12 @@ public class BST {
     }
 
 
+
+
     public static void main(String[] args) {
 
         System.out.println("---Binary Search Tree---");
-        int values[] = {56,30,70};
+        int values[] = {56,30,70,22,40,60,95,11,3,16,65,63,67};
         Node root = null;
 
         for(int i = 0; i < values.length; i++){
